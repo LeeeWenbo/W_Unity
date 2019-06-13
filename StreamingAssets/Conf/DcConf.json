@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "sqlUrl": "localhost",
+  "sqlPort": "3306",
+  "sqlUser": "root",
+  "sqlPassword": "root",
+  "sqlDb": "zwyl",
+  "equipTable": "Equip"
+}

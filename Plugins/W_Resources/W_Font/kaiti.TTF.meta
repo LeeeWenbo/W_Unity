@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 27ae4a10151839e4780a43b325c4d83f
+timeCreated: 1513923408
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: STXinwei
+  fontNames:
+  - STXinwei
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 59fb138e34bd85449ad2534a7d1c4b6c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
