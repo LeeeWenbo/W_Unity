@@ -67,12 +67,6 @@ public class EquipM
     {
         return mySql.Select(tbName, "goId", go.IdStr());
     }
-
-    public static List<EquipM> FindObjS(U_MySQL mySql, string[] colS,string[] operationS,string[] valueS)
-    {
-        DataTable dt = mySql.Select(tbName, "goId", go.IdStr());
-        return FindObjS(dt);
-    }
     public static List<EquipM> FindObjS(DataTable dt)
     {
         if (dt.Rows.Count > 0)
@@ -82,9 +76,16 @@ public class EquipM
         else
             return null;
     }
-    public static EquipM FindObj(U_MySQL mySql,string[] colS, string[] operationS, string[] valueS)
+    public static List<EquipM> FindObjS(U_MySQL mySql,string[] judeColS, string[] operationS, string[] valueS)
     {
-        DataRow dr = FindDr(mySql, go);
+        //这个地方想想，可能不是只有一个dt
+        DataTable dt = mySql.Select(tbName, new string[] { "*"}, judeColS, operationS, valueS).Tables[0];
+        return FindObjS(dt);
+    }
+
+    public static EquipM FindObj(U_MySQL mySql, string[] judeColS, string[] operationS, string[] valueS)
+    {
+        DataRow dr = mySql.Select(tbName, new string[] { "*" }, judeColS, operationS, valueS).Tables[0].Rows[0];
         if (dr != null)
         {
             return U_MySQL.ToModel<EquipM>(dr);

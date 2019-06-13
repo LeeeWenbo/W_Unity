@@ -203,21 +203,21 @@ public class U_MySQL
     }
 
 
-    public DataSet Select(string tableName, string[] items, string[] whereColName, string[] operation, string[] value)
+    public DataSet Select(string tableName, string[] selectColS, string[] judeColS, string[] operationS, string[] valueS)
     {
-        if (whereColName.Length != operation.Length || operation.Length != value.Length)
+        if (judeColS.Length != operationS.Length || operationS.Length != valueS.Length)
         {
             throw new Exception("输入不正确：" + "col.Length != operation.Length != values.Length");
         }
-        string query = "SELECT " + items[0];
-        for (int i = 1; i < items.Length; i++)
+        string query = "SELECT " + selectColS[0];
+        for (int i = 1; i < selectColS.Length; i++)
         {
-            query += "," + items[i];
+            query += "," + selectColS[i];
         }
-        query += "  FROM  " + tableName + "  WHERE " + " " + whereColName[0] + operation[0] + " '" + value[0] + "'";
-        for (int i = 1; i < whereColName.Length; i++)
+        query += "  FROM  " + tableName + "  WHERE " + " " + judeColS[0] + operationS[0] + " '" + valueS[0] + "'";
+        for (int i = 1; i < judeColS.Length; i++)
         {
-            query += " AND " + whereColName[i] + operation[i] + "' " + value[i] + "'";
+            query += " AND " + judeColS[i] + operationS[i] + "' " + valueS[i] + "'";
         }
         return QuerySet(query);
     }
@@ -238,6 +238,8 @@ public class U_MySQL
 
         return resule;
     }
+
+  
     public DataTable Select(string tableName, string whereColName, string value, string tarColName = "*", string operation = "=")
     {
         string query = "SELECT " + tarColName + "  FROM  " + tableName + "  WHERE " + " " + whereColName + "=" + value;

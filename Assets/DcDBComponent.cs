@@ -139,6 +139,27 @@ public class DcDBComponent : MonoBehaviour
         {
             EquipM.DebugObj(mySql, tar);
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            //EquipM e = EquipM.FindObj(mySql,
+            //    new string[] { "isStatic", "isHoverOutline", "isClickFlashing" },
+            //    new string[] { "=", "=", "=" },
+            //    new string[] { "1", "1", "1" });
+            //    Debug.Log(e.name + "  " + e.oriLocalPos);
+
+
+
+
+            List<EquipM> es = EquipM.FindObjS(mySql,
+                new string[] { "isStatic", "isHoverOutline", "isClickFlashing" },
+                new string[] { "=", "=", "=" },
+                new string[] { "0", "1", "1" });
+
+            foreach (EquipM e in es)
+            {
+                Debug.Log(e.name + "  " + e.oriLocalPos);
+            }
+        }
     }
 
     public void DELECT_ALL()
